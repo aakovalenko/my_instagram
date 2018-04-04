@@ -44,7 +44,7 @@ AppAsset::register($this);
         $menuItems[] = ['label' => 'Login', 'url' => ['/user/default/login']];
     } else {
         $menuItems[] = '<li>'
-            . Html::beginForm(['/site/logout'], 'post')
+            . Html::beginForm(['/user/default/logout'], 'post')
             . Html::submitButton(
                 'Logout (' . Yii::$app->user->identity->username . ')',
                 ['class' => 'btn btn-link logout']

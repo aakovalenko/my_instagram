@@ -1,8 +1,9 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\User;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
+
 
 
 /**
@@ -10,21 +11,7 @@ use yii\filters\VerbFilter;
  */
 class SiteController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
 
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
 
     /**
      * {@inheritdoc}
@@ -48,7 +35,11 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+
+        $users = User::find()->all();
+        return $this->render('index',[
+            'users' => $users,
+        ]);
     }
 
 
