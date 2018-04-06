@@ -17,6 +17,15 @@ return [
         ],
     ],
     'components' => [
+        'storage' => [
+            'class' => 'frontend\components\Storage',
+        ],
+        'redis' => [
+            'class' => 'yii\redis\Connection',
+            'hostname' => 'localhost',
+            'port' => 6379,
+            'database' => 0,
+        ],
 
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -47,8 +56,10 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'prifile/<nickname:\w+>' => 'user/profile/view'
             ],
         ],
+
 
     ],
     'params' => $params,

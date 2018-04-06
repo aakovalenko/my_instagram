@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'My Images';
 ?>
 <div class="site-index">
 
@@ -17,7 +17,7 @@ $this->title = 'My Yii Application';
     <div class="body-content">
 
         <?php foreach ($users as $user) : ?>
-        <a href="<?php echo \yii\helpers\Url::to(['/user/profile/view' , 'id'=>$user->id]); ?>">
+        <a href="<?php echo \yii\helpers\Url::to(['/user/profile/view' , 'nickname'=>$user->getNickname()]); ?>">
             <?php echo $user->username ?>
         </a>
 
