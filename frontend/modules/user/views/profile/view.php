@@ -29,14 +29,22 @@ use dosamigos\fileupload\FileUpload;
     // see: https://github.com/blueimp/jQuery-File-Upload/wiki/Options#processing-callback-options
     'clientEvents' => [
         'fileuploaddone' => 'function(e, data) {
-                               alert("1");
+                               console.log(data.result.success);
+                               if(data.result.success) {
+                               $("#profile-image-success").show();
+                               $("#profile-image-fail").hide();
+                               $("#profile-picture").attr("src", data.result.pictureUri);
+                               } else {
+                                 $("#profile-image-fail").html(data.result.errors.picture).show();
+                                 $("#profile-image-success").hide();
+                               }
                             }',
 
     ],
 ]); ?>
 
 <hr>
-<?php endif; ?>
+<?php else: ?>
 
 <?php if  (Yii::$app->user->identity['id'] !== $user->getId()) :  ?>
 <a href="<?php echo Url::to(['/user/profile/subscribe', 'id' => $user->getId()]);?>" class="btn brn-info">Subscribe</a>
@@ -57,6 +65,8 @@ use dosamigos\fileupload\FileUpload;
 </div>
 <?php endif;?>
 <?php endif;?>
+
+<?php endif; ?>
 <hr>
 
 <!-- Button trigger modal -->
