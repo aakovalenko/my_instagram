@@ -15,6 +15,9 @@ return [
         'user' => [
             'class' => 'frontend\modules\user\Module',
         ],
+        'post' => [
+            'class' => 'frontend\modules\post\Module',
+        ],
     ],
     'components' => [
         'storage' => [
@@ -56,7 +59,8 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'prifile/<nickname:\w+>' => 'user/profile/view'
+                'prifile/<nickname:\w+>' => 'user/profile/view',
+                'post/<id:\d+>' => 'post/default/view'
             ],
         ],
 

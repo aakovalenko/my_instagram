@@ -14,7 +14,7 @@ use dosamigos\fileupload\FileUpload;
 
 <img src="<?php echo $user->getPicture();?>" id="profile-picture" alt="Pic" />
 
-<?php if ($currentUser->equals($user)) : ?>
+<?php if ($currentUser && $currentUser->equals($user)) : ?>
 
 <div class="alert alert-success display-none" id="profile-image-success">Profile image update</div>
 <div class="alert alert-danger display-none" id="profile-image-fail"></div>
@@ -50,8 +50,11 @@ use dosamigos\fileupload\FileUpload;
 <a href="<?php echo Url::to(['/user/profile/subscribe', 'id' => $user->getId()]);?>" class="btn brn-info">Subscribe</a>
 <a href="<?php echo Url::to(['/user/profile/unsubscribe', 'id' => $user->getId()]);?>" class="btn brn-info">Unsubscribe</a>
 <?php endif ?>
+
 <hr>
+
 <?php if ($currentUser): ?>
+
 <?php if(!Yii::$app->user->isGuest): ?>
 <h5>Friends, who are also following <?php echo Html::encode($user->username); ?>: </h5>
 <div class="row">

@@ -1,16 +1,16 @@
 <?php
 
-namespace frontend\modules\user;
+namespace frontend\modules\post;
 
 /**
- * user module definition class
+ * post module definition class
  */
 class Module extends \yii\base\Module
 {
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'frontend\modules\user\controllers';
+    public $controllerNamespace = 'frontend\modules\post\controllers';
 
     /**
      * @inheritdoc
